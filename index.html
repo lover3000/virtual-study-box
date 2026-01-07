@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusheen Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="left-panel">
+        <div style="flex-shrink: 0;">
+            <div class="smart-bar">
+                <input type="text" id="inputUrl" placeholder="Link video youtube" onkeypress="handleEnter(event)">
+                <button class="btn-search" onclick="smartLoad()">Phát</button>
+            </div>
+        </div>
+        <div class="video-wrapper">
+            <iframe id="yt-player" src="" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" allowfullscreen></iframe>
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/L0NZW6pgSLc?si=e9HZMYTgHAl0FpBf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="score-board">
+            <span>Hôm nay đã ăn:</span>
+            <span id="fish-count">0</span>
+            <span>🐟</span>
+        </div>
+
+        <div class="speech-bubble" id="pet-speech">Zzz... Đang "học" mà... 💤</div>
+        <img id="pet-image" src="" alt="Pusheen">
+        <div class="timer-display" id="timer">25:00</div>
+        
+        <div class="controls">
+            <button class="btn-control btn-start" id="btn-main" onclick="toggleTimer()">Bắt đầu</button>
+            <button class="btn-control btn-feed" id="btn-feed" onclick="startBreak()">Cho ăn (Nghỉ 5 phút)</button>
+            <button class="btn-control btn-reset" id="btn-reset" onclick="resetWork()">Reset</button>
+        </div>
+        
+        <div style="margin-top: 15px; font-size: 13px; color: #ff6f61;">
+            <span onclick="testNotification()" class="test-notification-btn">🔔 Thử thông báo & loa</span>
+        </div>
+    </div>
+</div>
+
+<script src="/js/script.js" type="module"></script>
+
+</body>
+</html>
