@@ -106,6 +106,7 @@ function finishBreak() {
   btnMain.innerText = "Bắt đầu";
   btnMain.style.background = "#4ecdc4";
   btnMain.style.color = "white";
+  btnMain.style.display = "inline-block";
   if (Notification.permission === "granted")
     new Notification("No rồi!", {
       body: "Nghỉ ngơi xong rồi, quay lại học tập, làm việc thôi!",

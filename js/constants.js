@@ -18,7 +18,7 @@ export const MODES = {
 };
 
 export const CONFIG = {
-    WORK_MINUTES: 0,  
+    WORK_MINUTES: 25,  
     BREAK_MINUTES: 5,  
     ALARM_SOUND: "https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3",
     DEFAULT_YOUTUBE_URL: "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
