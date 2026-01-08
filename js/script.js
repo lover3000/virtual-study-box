@@ -17,6 +17,23 @@ const feedCountDisplay = document.getElementById("fish-count");
 
 function init() {
   resetWork();
+  const today = new Date().toLocaleDateString(); 
+  const savedDate = localStorage.getItem("feedDate");
+  const savedCount = localStorage.getItem("feedCount");
+
+  if (savedDate === today) {
+    // Nếu trùng ngày, khôi phục số lượng cũ
+    feedCount = parseInt(savedCount) || 0;
+  } else {
+    // Nếu sang ngày mới hoặc chưa có dữ liệu, reset
+    feedCount = 0;
+    localStorage.setItem("feedDate", today);
+    localStorage.setItem("feedCount", 0);
+  }
+  
+  feedCountDisplay.innerText = feedCount;
+  // ------------------------------
+
   document.getElementById("yt-player").src = Constants.CONFIG.DEFAULT_YOUTUBE_URL;
 }
 
@@ -88,6 +105,8 @@ window.startBreak = function () {
   feedCount++;
   feedCountDisplay.innerText = feedCount;
 
+  localStorage.setItem("feedCount", feedCount);
+  
   Constants.alarmSound.pause();
   Constants.alarmSound.currentTime = 0;
   petImg.classList.remove("shaking");
