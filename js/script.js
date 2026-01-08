@@ -14,7 +14,6 @@ const petTxt = document.getElementById("pet-speech");
 const btnMain = document.getElementById("btn-main");
 const btnFeed = document.getElementById("btn-feed");
 const feedCountDisplay = document.getElementById("fish-count");
-const alarmSound = new Audio(Constants.CONFIG.ALARM_SOUND);
 
 function init() {
   resetWork();
@@ -64,7 +63,7 @@ function startCountdown() {
     } else {
       clearInterval(timerInterval);
       isCountingDown = false;
-      alarmSound.play().catch((e) => console.log(e));
+      Constants.alarmSound.play().catch((e) => console.log(e));
       if (currentMode === Constants.MODES.WORK) finishWork();
       else if (currentMode === Constants.MODES.BREAK) finishBreak();
     }
@@ -89,8 +88,8 @@ window.startBreak = function () {
   feedCount++;
   feedCountDisplay.innerText = feedCount;
 
-  alarmSound.pause();
-  alarmSound.currentTime = 0;
+  Constants.alarmSound.pause();
+  Constants.alarmSound.currentTime = 0;
   petImg.classList.remove("shaking");
   currentMode = Constants.MODES.BREAK;
   timeLeft = Constants.CONFIG.BREAK_MINUTES * 60;
@@ -116,8 +115,8 @@ function finishBreak() {
 
 window.resetWork = resetWork;
 function resetWork() {
-  alarmSound.pause();
-  alarmSound.currentTime = 0;
+  Constants.alarmSound.pause();
+  Constants.alarmSound.currentTime = 0;
   currentMode = Constants.MODES.WORK;
   isCountingDown = false;
   clearInterval(timerInterval);

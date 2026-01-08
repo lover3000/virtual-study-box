@@ -23,3 +23,5 @@ export const CONFIG = {
     ALARM_SOUND: "https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3",
     DEFAULT_YOUTUBE_URL: "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
 };
+
+export const alarmSound = new Audio(CONFIG.ALARM_SOUND);
